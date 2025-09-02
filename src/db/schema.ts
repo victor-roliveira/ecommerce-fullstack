@@ -1,11 +1,11 @@
 import { relations } from "drizzle-orm";
 import {
+  boolean,
   integer,
   pgTable,
   text,
   timestamp,
   uuid,
-  boolean,
 } from "drizzle-orm/pg-core";
 
 export const userTable = pgTable("user", {
@@ -37,7 +37,7 @@ export const sessionTable = pgTable("session", {
     .references(() => userTable.id, { onDelete: "cascade" }),
 });
 
-export const account = pgTable("account", {
+export const accountTable = pgTable("account", {
   id: text("id").primaryKey(),
   accountId: text("account_id").notNull(),
   providerId: text("provider_id").notNull(),
@@ -55,7 +55,7 @@ export const account = pgTable("account", {
   updatedAt: timestamp("updated_at").notNull(),
 });
 
-export const verification = pgTable("verification", {
+export const verificationTable = pgTable("verification", {
   id: text("id").primaryKey(),
   identifier: text("identifier").notNull(),
   value: text("value").notNull(),
