@@ -27,7 +27,11 @@ export const Header = () => {
       <div className="flex items-center">
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="outline" size="icon">
+            <Button
+              className="border-none shadow-none"
+              variant="outline"
+              size="icon"
+            >
               <MenuIcon />
             </Button>
           </SheetTrigger>
