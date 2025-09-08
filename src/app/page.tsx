@@ -1,7 +1,9 @@
+import CategorySelector from "@/components/common/category-selector";
 import { Header } from "@/components/common/header";
 import ProductList from "@/components/common/product-list";
 import { db } from "@/db";
 import Image from "next/image";
+import { ca } from "zod/v4/locales";
 
 export default async function Home() {
   const products = await db.query.productTable.findMany({
@@ -9,7 +11,8 @@ export default async function Home() {
       variants: true,
     },
   });
-  console.log(products);
+
+  const categories = await db.query.categoryTable.findMany({});
 
   return (
     <>
@@ -27,6 +30,10 @@ export default async function Home() {
         </div>
 
         <ProductList title={"Mais Vendidos"} products={products} />
+
+        <div className="px-5">
+          <CategorySelector categories={categories} />
+        </div>
 
         <div className="px-5">
           <Image
