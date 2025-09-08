@@ -37,7 +37,7 @@ export const Header = () => {
           </SheetTrigger>
           <SheetContent>
             <SheetHeader>
-              <SheetTitle>Menu</SheetTitle>
+              <Image src="/Logo.svg" alt="LOGO BEWEAR" width={60} height={60} />
             </SheetHeader>
             <div className="px-5">
               {session?.user ? (
@@ -73,9 +73,12 @@ export const Header = () => {
               ) : (
                 <div className="flex items-center justify-between">
                   <h2 className="font-semibold">Olá. Faça seu login!</h2>
-                  <Button size="icon" asChild variant="outline">
+                  <Button className="rounded-full bg-orange-600" asChild>
                     <Link href="/authentication">
-                      <LogInIcon />
+                      <div className="flex items-center gap-2">
+                        Login
+                        <LogInIcon />
+                      </div>
                     </Link>
                   </Button>
                 </div>
